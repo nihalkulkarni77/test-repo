@@ -20,8 +20,8 @@ pipeline{
 				dir ('/var/www/html'){
 					sh "rm -rf index.html"
 				}
-					sh "cp /mnt/projects/test-repo/index.html /var/www/html"
-					sh "service httpd restart"
+				sh "cp /mnt/projects/test-repo/index.html /var/www/html"
+				sh "chmod -R 777 /var"
 			}
 		}
 	}	
