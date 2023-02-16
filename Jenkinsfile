@@ -17,8 +17,11 @@ pipeline{
 		
 		stage ('copy-index-file'){
 			steps {
-				sh "rm -rf /var/www/html/index.html"
-				sh "cp /mnt/projects/test-repo/index.html /var/www/html"
+				dir ('/var/www/html'){
+					sh "rm -rf index.html"
+				}
+					sh "cp /mnt/projects/test-repo/index.html /var/www/html"
+					sh "service httpd restart"
 			}
 		}
 	}	
